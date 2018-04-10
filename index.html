@@ -57,9 +57,9 @@ input[type=submit]:hover {
     <textarea id="note" name="note" style="height:200px"></textarea>
 
 	<input type="hidden" name="subject" value="Donation to CF Foundation" />
-    <input type="hidden" name="access_token" value="4perkslcsky3935x9yrzj60p" />
+    <input type="hidden" name="access_token" value="a95un15h5hraoz9pqe9d546e" />
     <input type="hidden" id="emailText" name="text" value="Test" />
-    <input type="submit" value="Submit">
+    <input type="submit" id="submit_form" value="Submit">
   </form>
 </div>
 
@@ -75,5 +75,14 @@ function myFunction() {
 	
 	document.getElementById("emailText").value = name + " donated " + donation + "\n\n" + note;
 }
+
+var submitButton = document.getElementById("submit_form");
+var form = document.getElementById("email_form");
+form.addEventListener("submit", function (e) {
+	setTimeout(function() {
+        submitButton.value = "Sending...";
+        submitButton.disabled = true;
+    }, 1);
+});
 
 </script>
