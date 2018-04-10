@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-size:15px;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size:15px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h3>Donation Page</h3>
+<p>Please use this page to tell us you donated! We truly appreciate it and we want to send you a thank you card so let us know!</p>
+
+<!-- action="https://postmail.invotes.com/send" method="post" -->
+
+<div class="container">
+  <form id="email_form" onsubmit="myFunction();" action="https://postmail.invotes.com/send" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+
+    <label for="donation">Amount Donated</label>
+    <input type="text" id="donation" name="donation">
+
+    <label for="note">Leave a Note!</label>
+    <textarea id="note" name="note" style="height:200px"></textarea>
+
+	<input type="hidden" name="subject" value="Donation to CF Foundation" />
+    <input type="hidden" name="access_token" value="4perkslcsky3935x9yrzj60p" />
+    <input type="hidden" id="emailText" name="text" value="Test" />
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
+
+<script>
+
+function myFunction() {
+	var name = document.getElementById("name").value;
+	var donation = document.getElementById("donation").value;
+	var note = document.getElementById("note").value;
+	
+	document.getElementById("emailText").value = name + " donated " + donation + "\n\n" + note;
+}
+
+</script>
